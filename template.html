@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flood Prediction</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style type="text/css">
+		body{
+			background-image:url(https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F3e713c88-1120-11ea-b931-e6147e389878.jpg?crop=1500%2C1000%2C0%2C0);
+			background-size: cover;
+			background-attachment: fixed;
+			 text-align:left;
+		}
+
+		h1{
+			text-decoration: underline;
+		}
+
+	    .form-control{
+	    	border-radius: 50px;
+	    	background:transparent;
+            color:red;
+
+	    }
+
+	    p{
+	    	padding-left: 475px;
+	    	background-color: white;
+	    	padding-top: 10px;
+	    	padding-bottom: 10px;
+	    }
+
+	  </style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-danger">Prediction of Flood using Environmental Analysis</h1>
+		<br>
+		<form action="{{ url_for('y_predict')}}"method="post">
+			<div  class="form-group">
+				<h3 class="text-warning">Discharge:</h3>
+				<input type="number step=any" class="form-control form-control-lg" name="Discharge" placeholder="Discharge">
+			</div>
+
+			<div class="form-group">
+				<h3 class="text-warning">Flood runoff</h3>
+				<input type="number step=any"  class="form-control form-control-lg" name="Flood runoff" placeholder="Flood runoff">
+			</div>
+             
+            <div class="form-group">
+				<h3 class="text-warning">Daily runoff</h3>
+				<input type="number step=any"  class="form-control form-control-lg" name="Daily runoff" placeholder="Daily runoff">
+			</div>
+
+			<div class="form-group">
+				<h3 class="text-warning">Weekly runoff</h3>
+				<input type=number step=any"  class="form-control form-control-lg" name="Weekly runoff" placeholder="Weekly runoff">
+			</div>
+             <br>
+			<button type="button" class="btn btn-primary btn-block btn-lg">PREDICT</button>
+			<br><br>
+             <p><b>{{prediction_text}}</b></p>
+		</form>
+		 
+         
+	</div>
+</body>
+</html>
